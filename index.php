@@ -1,11 +1,13 @@
-<?php  
+<?php
 
 session_start();
+
+// samo da vidim radi li  sad ovo
 
 // initializing variables
 $password = "";
 $email    = "";
-$errors = ''; 
+$errors = '';
 
 // connect to the database
 $link = mysqli_connect('localhost', 'root', '', 'projekat');
@@ -28,7 +30,7 @@ if (isset($_POST['logIn'])) {
   }
 
   if ($errors == '') {
-    
+
     $query = "SELECT * FROM users WHERE email='$email' AND password='$password'";
     $results = mysqli_query($link, $query);
     if (mysqli_num_rows($results) == 1) {
@@ -96,7 +98,7 @@ if (isset($_POST['logIn'])) {
           <button style="color:#FFF;" type="submit" class="btn btn-primary" id="signIn"><a href="signUp.php" style="text-decoration: none; color:#fff; ">Sign up!</a></button>
         </div>
       </div>
-   
+
 
     <div class="container" id="about">
 
@@ -131,12 +133,12 @@ if (isset($_POST['logIn'])) {
 
 
     <div id="footer">
-       
+
       <div>
-        
+
         <h1 style="color:#FFC3CC;">Soon you can download the app!</h1>
 
-       
+
 
         <a href=""><img id="icon" src="photos/download.png"></a>
 
@@ -149,7 +151,7 @@ if (isset($_POST['logIn'])) {
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>  
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
 
 
