@@ -5,7 +5,7 @@ html{
 
 body{
 
-	background: none;
+	
 	text-align: center;
 	position: relative;
 }
@@ -87,7 +87,7 @@ input{
 }
 
 .textJumbo{
-	color:#D90A8C;
+	color:#F83897;
 	margin-top: 200px;
 
 }

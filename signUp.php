@@ -88,8 +88,8 @@ if ($_POST) {
                 if(mysqli_query($link, $query)) {
 
                     $email = mysqli_real_escape_string($link, $_POST['email']);
-                    $_SESSION['email'] = $email;
-                    $_SESSION['success'] = "You are now logged in";
+                    $name = mysqli_real_escape_string($link, $_POST['name']);
+                    $_SESSION['name'] = $name;
                     header("Location: home.php");
            }else{
 
