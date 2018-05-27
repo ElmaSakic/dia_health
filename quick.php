@@ -1,32 +1,38 @@
 <?php
-   $link = mysqli_connect ("localhost", "root", "", "projekat");
+session_start();
 
-    if (mysqli_connect_error()) {
 
-        die('Error');
+$link = new PDO("mysql:host=localhost;dbname=projekat", "root", "");
+$error = $db->errorInfo();
+    if (!is_null($error[2])) {
+        echo "Query failed! " . $error[2];
     }
 
-    if ($_POST) {
 
-        
+    if (isset($_POST)) {
 
-        $email= $_SESSION['email'];
-        $query = "INSERT INTO data (email, sugar, category) 
-                VALUES('"
-                .mysqli_real_escape_string($link, $email)."', '"
-                .mysqli_real_escape_string($link, $_POST['value'])."', '"
-                .mysqli_real_escape_string($link, $_POST['timeCategory']).
-                "')";
-
-                $sugar = mysqli_real_escape_string($link, $_POST['value']);
-        $_SESSION['sugar'] = $sugar;
-
-                mysqli_query($link, $query);
-              
-
-    }
-
- ?>
+        $email = $SESSION['email'];
+        $sugar = $_POST['sugar'];
+        $category = $_POST['category'];
 
 
- 
+
+
+        $query = "INSERT INTO data( email, sugar,category) VALUES ( $email, '$sugar','$category' ) ";
+
+        $result = $link->query($query);
+        if ($result) {
+            # code...
+            echo "good";
+        }
+
+
+     }else{
+        echo "bad";
+     }
+
+     $result->closeCursor();
+     $link = null;
+
+
+?>
